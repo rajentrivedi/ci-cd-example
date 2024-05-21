@@ -11,7 +11,8 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ALLOW_EMPTY_PASSWORD: no
+          MYSQL_ROOT_PASSWORD: test
           MYSQL_DATABASE: test_dev
         ports:
           - 3306:3306
@@ -35,6 +36,6 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
           DB_USERNAME: root
-          DB_PASSWORD: null
+          DB_PASSWORD: ${{ job.services.mysql.MYSQL_ROOT_PASSWORD}}
           DB_DATABASE: test_dev
           API_KEY: ${{secrets.API_KEY}}
