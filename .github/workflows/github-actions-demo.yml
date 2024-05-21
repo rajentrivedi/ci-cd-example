@@ -39,3 +39,5 @@ jobs:
           DB_PASSWORD: ${{ job.services.mysql.MYSQL_ROOT_PASSWORD}}
           DB_DATABASE: test_dev
           API_KEY: ${{secrets.API_KEY}}
+      -name: Run Laravel Pint
+        run: ./vendor/bin/pint
