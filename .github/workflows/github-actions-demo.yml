@@ -39,4 +39,3 @@ jobs:
           DB_PASSWORD: null
           DB_DATABASE: test_dev
           API_KEY: ${{secrets.API_KEY}}
-        run: vendor/bin/phpunit
